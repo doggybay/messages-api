@@ -1,39 +1,28 @@
-# Yard Sales App API
+# Messages API
 
-## Available Routes
-*All available routes have a base url of:*
-> `http://localhost:800/api`
----
-### Users
-- **Get** all users:
-> /users
-- **Get** one user:
-> /users/:id
-- **Patch** a user:
-> /users/:id
-- **Post** a new user:
-> /users
-- **Delete** a user:
-> /users/:id
+## Routes
 
-### Sales
-- **Get** all sales:
-> /sales
-- **Get** one sale:
-> /sales/:id
-- **Patch** a sale:
-> /sales/:id
-- **Post** a new sale:
-> /sales
-- **Delete** a sale:
-> /sales/:id
+- Get All
+```
+http://localhost:8000/api/messages
+```
 
-### Sales Pictures
-- **Get** all pictures:
-> /sales-pictures
-- **Get** one picture:
-> /sales-pictures/:id
-- **Post** a new picture:
-> /sales-pictures
-- **Delete** a picture:
-> /sales-pictures/:id
+- Get One
+```
+http://localhost:8000/api/messages/:id
+```
+
+- Post New Message
+```
+http://localhost:8000/api/messages
+```
+
+- Patch Message
+```
+http://localhost:8000/api/messages/:id
+```
+
+- Delete Message
+```
+http://localhost:8000/api/messages/:id
+```

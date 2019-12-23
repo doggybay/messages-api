@@ -1,21 +1,31 @@
 const Message = require('../models/Message')
 
-exports.getAllMessages = (req, res) => {
-  Message.query().then(messages => res.json(messages))
+exports.getAllMessages = async (req, res) => {
+  const messages = await Message.query()
+  
+  res.json(messages)
 }
 
-// exports.getOnePicture = (req, res) => {
-//   Picture.query().findById(req.params.id).then(picture => res.json(picture))
-// }
+exports.getOnemessage = async (req, res) => {
+  const message = await Message.query().findById(req.params.id)
 
-// exports.deleteOnePicture = (req, res) => {
-//   Picture.query().deleteById(req.params.id).returning('*').then(deletedPicture => res.json(deletedPicture))
-// }
+  res.json(message)
+}
 
-// exports.addOnePicture = (req, res) => {
-//   Picture.query().insert(req.body).returning('*').then(newPicture => res.json(newPicture))
-// }
+exports.addNewMessage = async (req, res) => {
+  const newMessage = await Message.query().insert(req.body).returning('*')
 
-// exports.addPictures = (req, res) => {
-//   Picture.query().insert(req.body).returning('*').then(newPicture => res.json(newPicture))
-// }
+  res.json(newMessage)
+}
+
+exports.updateOneMessage = async (req, res) => {
+  const updatedMessage = await Message.query().findById(req.params.id).patch(req.body).returning('*')
+
+  res.json(updatedMessage)
+}
+
+exports.deleteMessage = async (req, res) => {
+  const deletedMessage = await Message.query().findById(req.params.id).returning('*')
+
+  res.json(deletedMessage)
+}

@@ -25,7 +25,7 @@ exports.updateOneMessage = async (req, res) => {
 }
 
 exports.deleteMessage = async (req, res) => {
-  const deletedMessage = await Message.query().findById(req.params.id).returning('*')
+  const deletedMessage = await Message.query().deleteById(req.params.id).returning('*')
 
   res.json(deletedMessage)
 }
